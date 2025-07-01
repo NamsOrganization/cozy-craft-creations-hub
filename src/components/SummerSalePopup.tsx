@@ -1,11 +1,13 @@
 
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
 export const SummerSalePopup = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Show popup after a short delay when component mounts
@@ -15,6 +17,11 @@ export const SummerSalePopup = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleShopNow = () => {
+    setIsOpen(false);
+    navigate('/shop');
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -47,7 +54,7 @@ export const SummerSalePopup = () => {
         <div className="flex flex-col gap-3 mt-6">
           <Button 
             className="bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white font-semibold py-3"
-            onClick={() => setIsOpen(false)}
+            onClick={handleShopNow}
           >
             Shop Now & Save!
           </Button>
