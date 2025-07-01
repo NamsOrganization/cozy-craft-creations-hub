@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { SummerSalePopup } from "@/components/SummerSalePopup";
 
 const Index = () => {
   const featuredProducts = [
@@ -30,6 +31,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <SummerSalePopup />
+      
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-cream-100 via-sage-50 to-rose-50">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20"></div>
